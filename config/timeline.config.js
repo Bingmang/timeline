@@ -1,6 +1,8 @@
 // mongodb
 const MONGODB_ADDRESS = 'mongodb://127.0.0.1:27017/timeline'
 const MONGODB_COLLECTION = 'timelineJobs'
+// maintainer
+const MAINTAINER = ['gaomingfei']
 // npm dir
 const NPM_DIR = process.env.HOME + '/npm'
 // scan dir schedule
@@ -29,6 +31,7 @@ const DEFAULT_EXECUTE_OPTION = {
 module.exports = {
   // timeline config:
   name: NAME,
+  maintainer: MAINTAINER,
   db: {
     address: MONGODB_ADDRESS,
     collection: MONGODB_COLLECTION,
