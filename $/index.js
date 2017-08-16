@@ -1,5 +1,6 @@
 let X = module.exports
 X.config = require('../config')
+X.sendAlarm = require('./sendAlarm')
 ;({ log: X.log, fs: X.fs } = require('jd-common'))
 const COMMON_LIBS = [
   ['Agenda', 'agenda'],

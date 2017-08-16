@@ -4,11 +4,12 @@ const MONGODB_COLLECTION = 'timelineJobs'
 // npm dir
 const NPM_DIR = process.env.HOME + '/npm'
 // scan dir schedule
-const SCAN_DIR_SCHEDULE = 60000
+const SCAN_DIR_SCHEDULE = 10000
 // default name
-const NAME = 'TIMELINE - ' + process.id // 当前进程的名字
+const NAME = 'TIMELINE - ' + process.pid // 当前进程的名字
 const CONFIG_NAME = 'timeline.json'     // 配置文件的名字
 // default option
+const TRANSFER_DELAY = 'in 10 seconds'  // 进程结束后转移本机任务， 指定下次执行任务的时间
 const MAX_CONCURRENCY = 1               // 单个timeline进程所能执行的任务数量
 const LOCAL_TIMEZONE = 'Asia/Shanghai'
 const DEFAULT_CONCURRENCY = 1           
@@ -34,6 +35,7 @@ module.exports = {
   },
   npm_dir: NPM_DIR,
   scan_dir_schedule: SCAN_DIR_SCHEDULE,
+  transfer_delay: TRANSFER_DELAY,
   maxConcurrency: MAX_CONCURRENCY,
   timezone: LOCAL_TIMEZONE,
   defaultConcurrency: DEFAULT_CONCURRENCY,
