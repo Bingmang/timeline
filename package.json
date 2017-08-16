@@ -1,13 +1,12 @@
 {
   "name": "jd-timeline",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "preinstall": "npm i -g pm2",
     "pretest": "echo jd-dev installed; node_modules/jd-dev/bin/pretest",
-    "start": "pm2 start echosystem.json",
-    "stop": "pm2 stop timeline"
+    "start": "bin/start",
+    "stop": "bin/stop"
   },
   "repository": {
     "type": "git",
@@ -27,6 +26,7 @@
     "moment": "^2.18.1",
     "mongo-sql": "^4.0.0",
     "mysql": "^2.13.0",
+    "pm2": "^2.6.1",
     "promise-retry": "^1.1.1",
     "redis": "^2.7.1",
     "sqlx": "^2.7.3"

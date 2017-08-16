@@ -4,7 +4,7 @@ const MONGODB_COLLECTION = 'timelineJobs'
 // npm dir
 const NPM_DIR = process.env.HOME + '/npm'
 // scan dir schedule
-const SCAN_DIR_SCHEDULE = 10000
+const SCAN_DIR_SCHEDULE = 30000
 // default name
 const NAME = 'TIMELINE - ' + process.pid // 当前进程的名字
 const CONFIG_NAME = 'timeline.json'     // 配置文件的名字
