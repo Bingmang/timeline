@@ -3,6 +3,8 @@ const MONGODB_ADDRESS = 'mongodb://127.0.0.1:27017/timeline'
 const MONGODB_COLLECTION = 'timelineJobs'
 // npm dir
 const NPM_DIR = process.env.HOME + '/npm'
+// scan dir schedule
+const SCAN_DIR_SCHEDULE = 60000
 // default name
 const NAME = 'TIMELINE - ' + process.id // 当前进程的名字
 const CONFIG_NAME = 'timeline.json'     // 配置文件的名字
@@ -31,6 +33,7 @@ module.exports = {
     collection: MONGODB_COLLECTION,
   },
   npm_dir: NPM_DIR,
+  scan_dir_schedule: SCAN_DIR_SCHEDULE,
   maxConcurrency: MAX_CONCURRENCY,
   timezone: LOCAL_TIMEZONE,
   defaultConcurrency: DEFAULT_CONCURRENCY,

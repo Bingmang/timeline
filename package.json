@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "preinstall": "npm i -g pm2",
     "pretest": "echo jd-dev installed; node_modules/jd-dev/bin/pretest",
     "start": "pm2 start echosystem.json",
     "stop": "pm2 stop timeline"
