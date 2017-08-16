@@ -32,8 +32,6 @@
     "sqlx": "^2.7.3"
   },
   "devDependencies": {
-    "istanbul-harmony": "^0.3.16",
-    "jd-dev": "^2.1.4",
-    "mocha": "^3.4.2"
+    "jd-dev": "^2.1.9"
   }
 }

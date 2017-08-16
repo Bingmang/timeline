@@ -4,9 +4,9 @@
       "name": "timeline",
       "script": "bin/www",
       "log_date_format": "YYYY-MM-DD HH:mm:SS",
-      "log_file": "log/timeline.log",
-      "error_file": "log/timeline-err.log",
-      "out_file": "log/timeline-out.log",
+      "log_file": "~/log/timeline.log",
+      "error_file": "~/log/timeline-err.log",
+      "out_file": "~/log/timeline-out.log",
       "exec_mode": "cluster",
       "env": {
         "ENV": "dev",
