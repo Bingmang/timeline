@@ -12,7 +12,7 @@ function wxAlarm(wx_tag, alarm_info) {
       jcom.log.error('[-][TIMELINE] WxAlarm Failed!')
       jcom.log.error(err)
     }
-    jcom.log('[!] Send wxAlarm:', wx_tag, alarm_info)
+    jcom.log('[!][TIMELINE] Send Alarm:', wx_tag, alarm_info)
   })
 }
 
