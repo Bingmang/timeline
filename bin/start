@@ -1,5 +1,10 @@
 #!/bin/bash
 set -e
+arrayenv=(dev ci prod)
+if ! [[ " ${arrayenv[*]} " == *" $ENV "* ]]; then
+  echo "[-][TIMELINE] ERROR! unsupport ENV=$ENV"
+  exit 1
+fi
 pm2=`find .. -path '*/.bin/pm2'|head -1`
 $pm2 start echosystem.json
 echo let\'s watch log for a while

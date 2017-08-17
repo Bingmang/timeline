@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "pretest": "echo jd-dev installed; node_modules/jd-dev/bin/pretest",
+    "pretest": "exit 0; echo jd-dev installed; node_modules/jd-dev/bin/pretest",
     "start": "bin/start",
     "stop": "bin/stop"
   },
@@ -33,5 +33,6 @@
   },
   "devDependencies": {
     "jd-dev": "^2.1.9"
-  }
+  },
+  "_snapshot": true
 }

@@ -32,6 +32,7 @@ npm stop
 
 ```json
 {
+  "maintainer": "erp_name",     // ["erp_name1", "erp_name2"]
   "schedule": "*/30 * * * * *",
   "timeout": 30000
 }
