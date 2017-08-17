@@ -8,10 +8,6 @@
       "error_file": "~/log/timeline-err.log",
       "out_file": "~/log/timeline-out.log",
       "exec_mode": "cluster",
-      "env": {
-        "ENV": "dev",
-        "PORT": 80
-      },
       "instances": "max"
     }
   ]
