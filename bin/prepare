@@ -5,5 +5,7 @@ mkdir -p ~/.conf
 echo "[bin/prepare] ENV=$ENV"
 if [[ $ENV =~ (debug|stage|prod).* ]]; then
   # mongodb connection config
-wget -t 3 -T 5 ftp://mfs.jd.com/mnt/mfs/ares/prod/dbp/api-server/mongodb_dbp_prod_rw.json -O ~/.conf/mongodb_dbp_prod_rw.js
+  wget -t 3 -T 5 ftp://mfs.jd.com/mnt/mfs/ares/prod/dbp/api-server/mongodb_dbp_prod_rw.json -O ~/.conf/mongodb_dbp_prod_rw.js
 fi
+pm2=`find .. -path '*/.bin/pm2'|head -1`
+$pm2 delete all
