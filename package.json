@@ -1,6 +1,6 @@
 {
-  "name": "jd-timeline",
-  "version": "0.3.0",
+  "name": "dbp-timeline",
+  "version": "0.4.0",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.jd.com:npm/jd-timeline.git"
+    "url": "git@git.jd.com:DBP/timeline.git"
   },
   "author": "",
   "license": "ISC",

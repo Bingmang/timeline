@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [JD-Timeline](#jd-timeline)
+- [DBP-Timeline](#dbp-timeline)
     - [start](#start)
     - [usage](#usage)
     - [local debug](#local-debug)
@@ -10,7 +10,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## JD-Timeline
+## DBP-Timeline
 
 ---
 
@@ -37,10 +37,11 @@ npm stop
   "timeout": 30000
 }
 
-任务会根据package.json中的版本号来分辨任务， 所以更新`timeline.json`时请更新版本号
 ```
 
-**注意：crontab和jenkins的格式不一样**
+**说明**
+
+`schedule`: 该crontab和jenkins上的不一样，注意第一位是秒。
 
 ```
 * * * * * *
@@ -53,6 +54,10 @@ npm stop
 +------------ Second            (range: 0-59)
 ```
 
+`maintainer`: 任务失败后会发送任务告警信息, `erp_name`为需要通知的erp用户名(没有@jd.com)
+
+详情请看：http://cf.jd.com/pages/viewpage.action?pageId=91302502
+
 ### local debug
 
 - 在timeline路径下执行`npm i`
@@ -61,8 +66,8 @@ npm stop
 - 在timeline路径下执行`npm start`即可
 - pm2日志输出在home目录下的log文件夹里
 - 停止任务输入`npm stop`
-- 任务监控界面在`localhost:3000/timeline`, 端口号以环境变量PORT配置，默认3000
-- 例如 `ENV=dev PORT=8080 npm start`
+- 任务监控界面在`localhost:19031/timeline`
+- 例如 `ENV=dev npm start`
 
 ### feature
 
