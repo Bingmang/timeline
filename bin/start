@@ -3,4 +3,4 @@ set -e
 pm2=`find .. -path '*/.bin/pm2'|head -1`
 $pm2 start echosystem.json
 echo let\'s watch log for a while
-$pm2 logs &
+$pm2 logs

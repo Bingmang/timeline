@@ -12,11 +12,12 @@ const NAME = 'TIMELINE - ' + process.pid // 当前进程的名字
 const CONFIG_NAME = 'timeline.json'     // 配置文件的名字
 // default option
 const TRANSFER_DELAY = 'in 10 seconds'  // 进程结束后转移本机任务， 指定下次执行任务的时间
-const MAX_CONCURRENCY = 1               // 单个timeline进程所能执行的任务数量
-const LOCAL_TIMEZONE = 'Asia/Shanghai'
-const DEFAULT_CONCURRENCY = 1           
+const MAX_CONCURRENCY = 1               // 所有timeline进程所能执行的任务数量
+const LOCK_LIMIT = 1                    // 同一时间内任务队列中最大数量
+const DEFAULT_CONCURRENCY = 1           // 单个任务在一个时间内同时执行的数量
 const DEFAULT_LOCK_LIMIT = 0            // 当前锁定任务的最大数量， 0代表无限
 const DEFAULT_LOCK_LIFETIME = 1200000   // 20 mins
+const LOCAL_TIMEZONE = 'Asia/Shanghai'
 const DEFAULT_DEFINE_OPTION = {         
   priority: 'normal',                   // 当前任务优先级都为normal
 }
@@ -40,6 +41,7 @@ module.exports = {
   scan_dir_schedule: SCAN_DIR_SCHEDULE,
   transfer_delay: TRANSFER_DELAY,
   maxConcurrency: MAX_CONCURRENCY,
+  lockLimit: LOCK_LIMIT,
   timezone: LOCAL_TIMEZONE,
   defaultConcurrency: DEFAULT_CONCURRENCY,
   defaultLockLimit: DEFAULT_LOCK_LIMIT,
