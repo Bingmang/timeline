@@ -5,7 +5,26 @@ if ! [[ " ${arrayenv[*]} " == *" $ENV "* ]]; then
   echo "[-][TIMELINE] ERROR! unsupport ENV=$ENV"
   exit 1
 fi
+app_name="timeline-$ENV"
+if [ "$ENV" = 'prod' ]; then
+  instances=16
+else
+  instances=2
+fi
+echo "{
+  \"apps\": [
+    {
+      \"name\": \"$app_name\",
+      \"script\": \"bin/www\",
+      \"log_file\": \"~/log/$app_name.log\",
+      \"error_file\": \"~/log/$app_name-err.log\",
+      \"out_file\": \"~/log/$app_name-out.log\",
+      \"exec_mode\": \"cluster\",
+      \"instances\": $instances
+    }
+  ]
+}" > ./.echosystem.json
 pm2=`find .. -path '*/.bin/pm2'|head -1`
-$pm2 start echosystem.json
+$pm2 start .echosystem.json
 echo let\'s watch log for a while
 $pm2 logs

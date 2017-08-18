@@ -1,5 +1,5 @@
 let X = module.exports
-X.config = require('../config')
+X.conf = require('../conf')
 ;({ log: X.log, fs: X.fs, alarmWechat: X.alarmWechat } = require('jd-common'))
 const COMMON_LIBS = [
   ['Agenda', 'agenda'],
