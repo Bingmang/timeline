@@ -1,5 +1,4 @@
 #!/bin/bash
 set -e
-pm2=`find .. -path '*/.bin/pm2'|head -1`
-$pm2 stop ./.tmp/pm2_config.json
-$pm2 kill
+# TODO: Need send exit signal to jobs to let them handle it.
+ps ax | grep pm2 | awk '{print $1}' | xargs kill -9
