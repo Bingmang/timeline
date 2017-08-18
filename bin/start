@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-arrayenv=(dev ci prod)
+arrayenv=(dev ci stage prod)
 if ! [[ " ${arrayenv[*]} " == *" $ENV "* ]]; then
   echo "[-][TIMELINE] ERROR! unsupport ENV=$ENV"
   exit 1
