@@ -2,7 +2,7 @@
   "name": "dbp-timeline",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "pretest": "exit 0; echo jd-dev installed; node_modules/jd-dev/bin/pretest",
     "start": "bin/start",

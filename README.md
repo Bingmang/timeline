@@ -3,8 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [DBP-Timeline](#dbp-timeline)
-    - [start](#start)
-    - [usage](#usage)
+    - [deploy job](#deploy-job)
     - [local debug](#local-debug)
     - [feature](#feature)
 
@@ -14,19 +13,15 @@
 
 ---
 
-### start
+### deploy job
 
 ---
 
-```sh
-npm install
-npm start
-npm stop
-```
+**First**
 
-### usage
+确保`npm start`能完整运行任务
 
----
+**Second**
 
 在自己的项目文件下添加`timeline.json`文件
 
@@ -41,6 +36,10 @@ npm stop
 
 **说明**
 
+`maintainer`: 任务失败后会发送任务告警信息, `erp_name`为需要通知的erp用户名(没有@jd.com)
+
+详情请看：http://cf.jd.com/pages/viewpage.action?pageId=91302502
+
 `schedule`: 该crontab和jenkins上的不一样，注意第一位是秒。
 
 ```
@@ -54,9 +53,29 @@ npm stop
 +------------ Second            (range: 0-59)
 ```
 
-`maintainer`: 任务失败后会发送任务告警信息, `erp_name`为需要通知的erp用户名(没有@jd.com)
+`timeout`：任务超时判断，超时后即判定任务失败
 
-详情请看：http://cf.jd.com/pages/viewpage.action?pageId=91302502
+当任务出错或超时后，会往进程传递`SIGUSR2`信号，请在`5秒`内处理自己的任务，避免不必要的损失。
+
+```js
+process.on('SIGUSR2', doSomething)
+```
+
+**Third**
+
+使用`jenkins`部署任务，流程依次是`commit->component->install`
+
+详情请看CF文档
+
+http://cf.jd.com/pages/viewpage.action?pageId=92441149
+
+**Forth**
+
+查看日志
+
+暂时请使用堡垒机查看日志
+
+
 
 ### local debug
 
@@ -71,11 +90,11 @@ npm stop
 
 ### feature
 
+- 任务失败后，使用信号`SIGUSR2`通知任务进程，请在指定时间内处理自己的任务并使进程退出
+
 - 每个进程同一时间内只执行一个任务，进程满载后其余任务进入任务队列(可在监控界面查看)
 
-- 任务失败或超时会自动重试（次数默认为3次），当失败时会发通知，通知频率和crontab一样
-
-- 进程结束会将当前进程的任务进行转移，在其他进程上重新执行(默认在10秒内)
+- 任务失败或超时会自动重试（次数默认为2次），当失败时会发通知，通知频率和crontab一样
 
 关于任务是如何执行的:
 

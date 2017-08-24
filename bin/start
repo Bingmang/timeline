@@ -9,5 +9,15 @@ mkdir -p ./.tmp
 node -p "require('./conf/_echoPm2Config')" > ./.tmp/pm2_config.json
 pm2=`find .. -path '*/.bin/pm2'|head -1`
 $pm2 start ./.tmp/pm2_config.json
+
 echo let\'s watch log for a while
-$pm2 logs
+$pm2 logs &
+pid_pm2=$!
+sleep 5
+kill $pid_pm2
+
+n_process_1=`$pm2 list|grep -E 'stop|error'|wc -l`
+if [ $n_process_1 -gt 0 ]; then
+  $pm2 list
+  exit 1
+fi

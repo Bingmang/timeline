@@ -16,4 +16,3 @@ function getMongoAddress(database, env) {
     `${process.env.HOME}/.conf/mongodb_${database}_${env}_rw`).url
   return mongo_address
 }
-

@@ -19,13 +19,13 @@ module.exports = {
   defaultLockLimit: 0,                            // 当前锁定任务的最大数量， 0代表无限
   defaultLockLifetime: 1200000,                   // 20 mins
   // job config: 
-  default_define_option: {
+  default_job_config: {
     priority: 'normal',                           // 当前任务优先级都为normal
-  },
-  default_execute_option: {
-    retries: 2,                                   // 任务出错重试次数
+    retries: 1,                                   // 任务出错重试次数
     factor: 2,                                    // 重试时间间隔指数上涨为2
-    minTimeout: 3000,                             // 最小重试时间间隔
-    maxTimeout: 10000,                            // 最大重试时间间隔
+    minTimeout: 10000,                            // 最小重试时间间隔
+    maxTimeout: 20000,                            // 最大重试时间间隔
   },
+  process_exit_signal: 'SIGUSR2',                 // 任务进程退出信号
+  process_check_delay: 5000,                      // 广播退出信号后检测进程是否退出的延迟, 注意：必须小于pm2的kill_timeout
 }
