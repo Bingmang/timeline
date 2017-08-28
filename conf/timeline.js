@@ -8,6 +8,7 @@ module.exports = {
   },
   // npm dir
   npm_dir: process.env.HOME + '/npm',
+  log_dir: process.env.HOME + '/log',
   config_name: 'timeline.json',     // 配置文件的名字,
   // default options
   scan_dir_schedule: 30000,                       // 扫描目录的时间间隔
