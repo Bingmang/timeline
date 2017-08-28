@@ -1,4 +1,4 @@
-const $ = require('./$')
+const conf = require('./conf')
 const Timeline = require('.')
 // express
 const Agendash = require('agendash')
@@ -6,7 +6,7 @@ const express = require('express')
 
 let app = express()
 let router = express.Router()
-let timeline = new Timeline($.conf.timeline)
+let timeline = new Timeline(conf.timeline)
 timeline.start()
 
 app.set("view engine", "ejs")

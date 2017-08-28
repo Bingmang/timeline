@@ -1,5 +1,4 @@
 let X = module.exports
-X.conf = require('../conf')
 ;({ log: X.log, fs: X.fs, alarmWechat: X.alarmWechat } = require('jd-common'))
 const COMMON_LIBS = [
   ['Agenda', 'agenda'],
@@ -10,6 +9,7 @@ const COMMON_LIBS = [
   ['_', 'lodash'],
   'redis',
   'path',
+  ['promiseRetry', 'promise-retry'],
 ]
 COMMON_LIBS.forEach(function (x) {
   let rename, libname
