@@ -1,4 +1,3 @@
 #!/bin/bash
 set -e
 # TODO: Need send exit signal to jobs to let them handle it.
-ps ax | grep pm2 | awk '{print $1}' | xargs kill -9

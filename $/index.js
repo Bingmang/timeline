@@ -9,7 +9,7 @@ const COMMON_LIBS = [
   ['_', 'lodash'],
   'redis',
   'path',
-  ['promiseRetry', 'promise-retry'],
+  ['retry', 'promise-retry'],
 ]
 COMMON_LIBS.forEach(function (x) {
   let rename, libname
