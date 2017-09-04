@@ -8,7 +8,6 @@ module.exports = JSON.stringify({
       kill_timeout: 1200000,
       log_file: `~/log/${app_name}.log`,
       error_file: `~/log/${app_name}-err.log`,
-      out_file: `~/log/${app_name}-out.log`,
       exec_mode: 'cluster',
       instances: instances,
       treekill: false,
