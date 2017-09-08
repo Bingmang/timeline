@@ -1,3 +1,4 @@
 #!/bin/bash
 set -e
-# TODO: Need send exit signal to jobs to let them handle it.
+pm2=`find .. -path '*/.bin/pm2'|head -1`
+$pm2 stop ./.tmp/pm2_config.json

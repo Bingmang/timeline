@@ -8,7 +8,7 @@ fi
 mkdir -p ./.tmp
 node -p "require('./conf/_echoPm2Config')" > ./.tmp/pm2_config.json
 pm2=`find .. -path '*/.bin/pm2'|head -1`
-$pm2 restart ./.tmp/pm2_config.json 
+$pm2 start ./.tmp/pm2_config.json 
 
 echo let\'s watch log for a while
 $pm2 logs &
