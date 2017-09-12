@@ -29,11 +29,37 @@
 
 在自己的项目文件下添加`timeline.json`文件
 
+**Single Job**
+
 ```json
 {
   "maintainer": "erp_name",     // ["erp_name1", "erp_name2"]
   "schedule": "*/30 * * * * *",
   "timeout": 30000
+}
+
+```
+
+**Multiple Jobs**
+
+```json
+{
+  "jobs": [
+    {
+      "name": "start",
+      "script": "./bin/start",
+      "maintainer": "erp_name",
+      "timeout": 30000,
+      "schedule": "0 * * * * *"
+    },
+    {
+      "name": "update",
+      "script": "./bin/update",
+      "maintainer": ["erp_name1", "erp_name2"],
+      "timeout": 40000,
+      "schedule": "0 0 * * * *"
+    }
+  ]
 }
 
 ```
