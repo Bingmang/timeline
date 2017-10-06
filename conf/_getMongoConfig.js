@@ -1,6 +1,6 @@
 module.exports = function getMongoConfig(database) {
   const ENV = process.env.ENV
-  if (['dev', 'ci', 'stage', 'prod'].indexOf(ENV) < 0) {
+  if (!['dev', 'prod'].includes(ENV)) {
     throw new Error('unsupport ENV=' + ENV)
     return
   }

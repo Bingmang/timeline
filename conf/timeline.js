@@ -3,13 +3,13 @@ module.exports = {
   name: 'Timeline-' + process.env.ENV + ' ' + process.pid,
   // mongodb
   db: {
-    address: require('./_getMongoConfig')('dbp'),
+    address: require('./_getMongoConfig')('timeline'),
     collection: 'timelineJobs',
   },
   // npm dir
   npm_dir: process.env.HOME + '/npm',
   log_dir: process.env.HOME + '/log',
-  config_name: 'timeline.json',     // 配置文件的名字,
+  config_name: 'timeline.json',                   // 配置文件的名字,
   // default options
   scan_dir_schedule: 20000,                       // 扫描目录的时间间隔
   maxConcurrency: 1,                              // 一个timeline进程所能执行的任务数量

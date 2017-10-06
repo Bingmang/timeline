@@ -1,13 +1,12 @@
 let X = module.exports
-;({ log: X.log, fs: X.fs, alarmWechat: X.alarmWechat } = require('jd-common'))
 const COMMON_LIBS = [
   ['Agenda', 'agenda'],
   'assert',
   ['Promise', 'bluebird'],
   'child_process',
+  ['fs', 'mz/fs'],
   'moment',
   ['_', 'lodash'],
-  'redis',
   'path',
   ['retry', 'promise-retry'],
 ]
@@ -22,7 +21,6 @@ COMMON_LIBS.forEach(function (x) {
   }
   X[rename] = require(libname)
 })
-X.Promise.promisifyAll(X.redis)
 Function.prototype.bind = (function (origBind) {
   return function () {
     let fn = origBind.apply(this, arguments)

@@ -2,17 +2,17 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [DBP-Timeline](#dbp-timeline)
-    - [Create Job](#create-job)
-        - [1) Interface](#1-interface)
-        - [2) Deploy](#2-deploy)
-        - [3) Watch logs](#3-watch-logs)
-    - [Local debug](#local-debug)
-    - [Feature](#feature)
+- [Timeline - A timing task scheduling system](#timeline---a-timing-task-scheduling-system)
+  - [Create Job](#create-job)
+    - [1) Interface](#1-interface)
+    - [2) Deploy](#2-deploy)
+    - [3) Watch logs](#3-watch-logs)
+  - [Local debug](#local-debug)
+  - [Feature](#feature)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# DBP-Timeline
+# Timeline - A timing task scheduling system
 
 ---
 
@@ -30,21 +30,18 @@
     {
       "name": "npm",
       "script": "npm start",
-      "maintainer": "erp_name",
       "timeout": 5000,
       "schedule": "*/30 * * * * *"
     },
     {
       "name": "start",
       "script": "./bin/start",
-      "maintainer": "erp_name",
       "timeout": 30000,
       "schedule": "0 * * * * *"
     },
     {
       "name": "update",
       "script": "./bin/update",
-      "maintainer": ["erp_name1", "erp_name2"],
       "timeout": 40000,
       "schedule": "0 0 * * * *"
     }
@@ -67,12 +64,6 @@ process.on('SIGUSR2', async () => {
 
 `script`: 将要执行的脚本，可以是`npm start`,　或`./bin`目录下的脚本(注意脚本执行指令的正确写法，前面要有一点)
 
-`maintainer`: 任务失败后会发送任务告警信息, `erp_name`为需要通知的erp用户名(没有@jd.com)
-
-如何接收报警信息：
-
-http://cf.jd.com/pages/viewpage.action?pageId=91302502
-
 `schedule`: 即crontab
 
 ```
@@ -91,19 +82,13 @@ http://cf.jd.com/pages/viewpage.action?pageId=91302502
 
 ### 2) Deploy
 
-使用`jenkins`部署任务，流程依次是`commit->component->install`
-
-如何部署timeline任务：
-
-http://cf.jd.com/pages/viewpage.action?pageId=92441149
+将`package`或`脚本文件`放在`~/npm`目录下
 
 ### 3) Watch logs
 
 进入任务监控界面即可看到日志按钮
 
-- ci: 10.190.0.127
-- stage: 10.190.0.128
-- prod: 10.190.0.118    10.184.89.27
+- dev: 127.0.0.1:17031
 
 ## Local debug
 
@@ -121,6 +106,8 @@ http://cf.jd.com/pages/viewpage.action?pageId=92441149
 
 - 任务监控界面在`localhost:19031`
 
+- 任务日志界面在`localhost:19031/log`
+
 ## Feature
 
 - 任务监控界面，线上浏览日志
@@ -135,4 +122,4 @@ http://cf.jd.com/pages/viewpage.action?pageId=92441149
 
 - 每个进程同一时间内只执行一个任务，进程满载后其余任务进入任务队列(可在监控界面查看)
 
-- 任务失败或超时会自动重试（次数默认为2次），当失败时会发通知，通知频率和crontab一样
+- 任务失败或超时会自动重试（次数默认为2次）

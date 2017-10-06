@@ -1,7 +1,7 @@
 const conf = require('./conf')
 const Timeline = require('.')
 // express
-const Agendash = require('timeline-agendash')
+const Agendash = require('agendash')
 const express = require('express')
 const serveIndex = require('serve-index')
 const serveStatic = require('serve-static')
